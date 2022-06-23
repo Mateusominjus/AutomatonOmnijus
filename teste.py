@@ -1,6 +1,8 @@
-from automatonOmnijus import ConectEmpresa
+
+from automatonOmnijus import ConectCentral
 
 
-empresa = ConectEmpresa(senha='omnijus01dev',empresa='miojo')
-r = empresa.acoes_pendentes()
-print(r)
+central = ConectCentral(senha='omnijus01')
+empresa = central.empresa('miojo')
+acoes_pendentes = empresa.acoes_pendentes()
+print(acoes_pendentes)
