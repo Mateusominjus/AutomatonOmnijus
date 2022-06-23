@@ -15,8 +15,8 @@ class ConectEmpresa:
         'empresa':empresa
        }
 
-    def processo(self,empresa:str,processo:int)->ConectProcesso:
-        return ConectProcesso(senha=self._senha,empresa=empresa,processo=processo)
+    def processo(self,processo:int)->ConectProcesso:
+        return ConectProcesso(senha=self._senha,empresa=self._empresa,processo=processo)
         
         
     def acoes_pendentes(self)->List[dict]:

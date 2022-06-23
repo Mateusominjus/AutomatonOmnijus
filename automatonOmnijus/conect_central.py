@@ -2,6 +2,7 @@ from automatonOmnijus.rotas import *
 from automatonOmnijus.requisicao import faz_requisicao
 from automatonOmnijus.conect_empresa import ConectEmpresa
 from automatonOmnijus.conect_processo import ConectProcesso
+
 class ConectCentral:
 
     def __init__(self,senha:str) -> None:
