@@ -1,7 +1,6 @@
+from automatonOmnijus import ConectEmpresa
 
 
-from automatonOmnijus.automaton_omnijus import AutomatonOmnijus
-
-a = AutomatonOmnijus('omnijus01dev')
-r = a.limpa_log_central()
+empresa = ConectEmpresa(senha='omnijus01dev',empresa='miojo')
+r = empresa.acoes_pendentes()
 print(r)

@@ -1,10 +1,11 @@
+# rotas globais
 LOG_CENTRAL = '/dev/log_central'
 LIMPAR_LOG_CENTRAL ='/dev/limpar_log_central'
 CRIAR_EMPRESA = '/dev/criar_empresa'
 LISTAR_EMPRESAS = '/dev/listar_empresas'
 
 
-
+#rotas de empresa
 ESTADO_INICIAL = '/dev/estado_inicial'
 MODIFICAR_ESTADO_INICIAL =  '/dev/modificar_estado_inicial'
 SCHEMA_DE_PROCESSO = '/dev/schema_de_processo'
@@ -17,7 +18,7 @@ TODOS_PROCESSOS =  '/todos_processos'
 LISTAR_ACOES_PENDENTES ='/acoes_pendentes'
 REMAPEAR_TODOS_PROCESSOS ='/dev/remapear_todos_processos'
 
-
+#rotas de processo 
 DADOS_DO_PROCESSO = '/dados_do_processo'
 MODIFICAR_PROCESSO = '/modificar_processo'
 CRIAR_PROCESSO = '/criar_processo'
