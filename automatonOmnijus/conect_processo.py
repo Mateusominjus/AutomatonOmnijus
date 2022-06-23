@@ -6,12 +6,12 @@ class ConectProcesso:
 
     def __init__(self,senha:str,empresa:str,processo:str) -> None:
         
-        self._header = {
+        self._headers = {
         'senha':senha,
         'empresa':empresa,
         'processo':str(processo)
        }
     
     def dados_do_processo(self)->dict:
-        return faz_requisicao(self._header)
+        return faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
         

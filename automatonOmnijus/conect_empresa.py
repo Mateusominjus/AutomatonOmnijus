@@ -10,7 +10,7 @@ class ConectEmpresa:
        self._senha = senha 
        self._empresa = empresa
        
-       self._header = {
+       self._headers = {
         'senha':senha,
         'empresa':empresa
        }
@@ -20,19 +20,19 @@ class ConectEmpresa:
         
         
     def acoes_pendentes(self)->List[dict]:
-        return faz_requisicao(header=self._header,rota=LISTAR_ACOES_PENDENTES)
+        return faz_requisicao(headers=self._headers,rota=LISTAR_ACOES_PENDENTES)
     
 
     def todos_processos(self)->List[int]:
-        return faz_requisicao(header=self._header,rota=TODOS_PROCESSOS)
+        return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
 
 
     def estado_inicial(self)->dict:
-        return faz_requisicao(header=self._header,rota=ESTADO_INICIAL)
+        return faz_requisicao(headers=self._headers,rota=ESTADO_INICIAL)
 
 
     def modifica_estado_inicial(self,estado_inicial:dict)->str:
-        return faz_requisicao(header=self._header,rota=MODIFICAR_ESTADO_INICIAL,body=estado_inicial)
+        return faz_requisicao(headers=self._headers,rota=MODIFICAR_ESTADO_INICIAL,body=estado_inicial)
     
 
 
