@@ -7,7 +7,7 @@ class ConectCentral:
 
     def __init__(self,senha:str) -> None:
         self._senha = senha
-        self._header = {
+        self._headers = {
             'senha':senha
         }
         
@@ -20,8 +20,8 @@ class ConectCentral:
     
     
     def lista_logs_da_central(self):
-        return faz_requisicao(header=self._header,rota=LOG_CENTRAL)
+        return faz_requisicao(headers=self._headers,rota=LOG_CENTRAL)
 
     def limpa_log_central(self):
-        return faz_requisicao(header=self._header, rota=LIMPAR_LOG_CENTRAL)
+        return faz_requisicao(headers=self._headers, rota=LIMPAR_LOG_CENTRAL)
     
