@@ -1,10 +1,17 @@
 
 
-class Empresa:
+from automatonOmnijus.automaton_base import AutomatonBase
 
-    def __init__(self,header:dict) -> None:
-        pass
-    
+
+class Empresa(AutomatonBase):
+
+    def __init__(self,senha:str,empresa:str) -> None:
+        
+       self._header = {
+        'senha':senha,
+        'empresa':empresa
+       }
+
 
     def acoes_pendentes(self):
         pass 
@@ -12,4 +19,5 @@ class Empresa:
 
     def todos_processos(self):
         pass 
-
+    
+    
