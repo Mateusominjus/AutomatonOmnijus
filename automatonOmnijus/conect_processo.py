@@ -30,5 +30,7 @@ class ConectProcesso:
         return faz_requisicao(headers=novos_headers,rota=COMPLETAR_ACAO_PENDENTE,body=body)
      
      
-    def registrar_tentativa_de_acao(self,nome_da_acao:str):
-        pass 
+    def registrar_tentativa_de_acao(self,nome_da_acao:str):       
+        novos_headers = deepcopy(self._headers)   
+        novos_headers['acao'] = nome_da_acao
+        return faz_requisicao(headers=novos_headers,rota=REGISTRAR_TENTATIVA_DE_ACAO_PENDENTE)
