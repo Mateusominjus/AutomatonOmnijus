@@ -35,6 +35,17 @@ class ConectEmpresa:
         return faz_requisicao(headers=self._headers,rota=MODIFICAR_ESTADO_INICIAL,body=estado_inicial)
     
 
+    def modificar_acoes(self,acoes:dict):
+        return faz_requisicao(headers=self._headers,rota=MODIFICAR_PROPRIEDADES_ACOES,body=acoes)
+    
+
+    def modificar_schema_do_processo(self,schema:dict):
+        return faz_requisicao(headers=self._headers,rota=MODIFICAR_SCHEMA_DE_PROCESSO,body=schema)
+
+    def modificar_arquivo_de_cerebro(self,arquivo_de_cerebro:str):
+        return 
+
+
 
 
 
