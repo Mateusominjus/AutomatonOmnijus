@@ -1,9 +1,8 @@
 
+from json import dump
 from automatonOmnijus import ConectCentral
 
 
-central = ConectCentral(senha='omnijus01')
+central = ConectCentral(senha='omnijus01dev')
 empresa = central.empresa('miojo')
-processo = empresa.processo(1)
-r = processo.dados_do_processo()
-print(r)
+

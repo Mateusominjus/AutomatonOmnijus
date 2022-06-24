@@ -1,0 +1,408 @@
+[
+    {
+        "hora": "2022-06-24 19:46:52.300493",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "6",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b614ab-39af05f51a5dada47aa82034",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "fa089c17-5ca8-4e50-90ee-beaae427dccf",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:19:46:51 +0000",
+                "timeEpoch": 1656100011209
+            },
+            "body": "ciA9IDIw",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'ciA9IDIw' is not defined"
+    },
+    {
+        "hora": "2022-06-24 19:49:04.515618",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "414",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b6152f-04c1d3496b6090ec7754566a",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "8a416771-334c-4332-8f88-017298b05d47",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:19:49:03 +0000",
+                "timeEpoch": 1656100143751
+            },
+            "body": "ZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'ZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRh' is not defined"
+    },
+    {
+        "hora": "2022-06-24 19:56:00.911577",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b616d0-37f2153e556d374c047443e0",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "895afdc1-eedd-49bb-897d-0c1bece498c1",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:19:56:00 +0000",
+                "timeEpoch": 1656100560155
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    },
+    {
+        "hora": "2022-06-24 19:57:11.723069",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "516",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b61716-60a4abf630472ae03d27f30d",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "content-type": "application/x-www-form-urlencoded",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "4d18b62c-61c9-4324-9937-8413b5101ccf",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:19:57:10 +0000",
+                "timeEpoch": 1656100630932
+            },
+            "body": "Ym9keT0lMEElMEElMEFkZWYrcmV0b3JuYV9hY29lcyUyOGFjb2VzX2NvbXBsZXRhZGFzJTNBK2xpc3QlMkMrYWNvZXMlM0ErZGljdCUyQytlc3RhZG8lM0ErZGljdCUyQytwcm9jZXNzbyUzQStkaWN0JTI5Ky0lM0UrbGlzdCUzQSUwQSUwQSsrKytpZislMjdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlciUyNytub3QraW4rYWNvZXNfY29tcGxldGFkYXMlM0ElMEErKysrKysrK3JldHVybislNUIlMjdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlciUyNyU1RCUwQSslMEErKysraWYrJTI3Y2FwdHVyYXJfYWd1YV9mZXJ2aWRhJTI3K25vdCtpbithY29lc19jb21wbGV0YWRhcyUzQSUwQSsrKysrKysrcmV0dXJuKyU1QiUyN2NhcHR1cmFyX2FndWFfZmVydmlkYSUyNyU1RCUwQSUwQSsrKytyZXR1cm4lNUIlNUQlMEErKysraWYrJTI3Y29sb2Nhcl9taW9qb19uYV9wYW5lbGElMjcrbm90K2luK2Fjb2VzX2NvbXBsZXRhZGFzJTNBJTBBKysrKysrKytyZXR1cm4rKyU1QiUyN2NvbG9jYXJfbWlvam9fbmFfcGFuZWxhJTI3JTVE",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'Ym9keT0lMEElMEElMEFkZWYrcmV0b3JuYV9hY29lcyUyOGFjb2VzX2NvbXBsZXRhZGFzJTNBK2xpc3QlMkMrYWNvZXMlM0ErZGljdCUyQytlc3RhZG8lM0ErZGljdCUyQytwcm9jZXNzbyUzQStkaWN0JTI5Ky0lM0UrbGlzdCUzQSUwQSUwQSsrKytpZislMjdjb2xv' is not defined"
+    },
+    {
+        "hora": "2022-06-24 20:00:20.753059",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b617d3-7275d3762459f7a407cd3e6a",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "805d7bc0-7d90-42e4-b463-be432cfa2663",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:20:00:19 +0000",
+                "timeEpoch": 1656100819971
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    },
+    {
+        "hora": "2022-06-24 20:03:30.201500",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b61891-156b851a724ebbce1a6c8593",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "POST",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "add711d6-3b81-4bd0-98b2-b8f01365bbc4",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:20:03:29 +0000",
+                "timeEpoch": 1656101009456
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    },
+    {
+        "hora": "2022-06-24 20:06:59.543832",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b61962-653eda5345a676847e930a89",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "d12e1c79-4287-4da5-a836-09d890673ddb",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:20:06:58 +0000",
+                "timeEpoch": 1656101218325
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    },
+    {
+        "hora": "2022-06-24 20:08:20.918562",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b619b4-486f1ab168d74f52558735bc",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "8cf88d78-fc6d-457d-9c30-9fa731516d78",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:20:08:20 +0000",
+                "timeEpoch": 1656101300132
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    },
+    {
+        "hora": "2022-06-24 20:08:36.695490",
+        "http": {
+            "version": "2.0",
+            "routeKey": "$default",
+            "rawPath": "/dev/modificar_cerebro",
+            "rawQueryString": "",
+            "headers": {
+                "content-length": "417",
+                "x-amzn-tls-version": "TLSv1.2",
+                "x-forwarded-proto": "https",
+                "x-forwarded-port": "443",
+                "x-forwarded-for": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                "accept": "*/*",
+                "senha": "omnijus01dev",
+                "x-amzn-tls-cipher-suite": "ECDHE-RSA-AES128-GCM-SHA256",
+                "x-amzn-trace-id": "Root=1-62b619c3-5511dd022db45cda07467c7b",
+                "host": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "empresa": "miojo",
+                "accept-encoding": "gzip, deflate",
+                "user-agent": "python-requests/2.28.0"
+            },
+            "requestContext": {
+                "accountId": "anonymous",
+                "apiId": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "domainName": "75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws",
+                "domainPrefix": "75s7k5xf4ebqh2sofe676zh7gm0vedtt",
+                "http": {
+                    "method": "GET",
+                    "path": "/dev/modificar_cerebro",
+                    "protocol": "HTTP/1.1",
+                    "sourceIp": "2804:14c:bf40:2d09:791c:30fd:31a3:2636",
+                    "userAgent": "python-requests/2.28.0"
+                },
+                "requestId": "b04c5a3f-ca00-42b9-b37f-85cd375bf1f5",
+                "routeKey": "$default",
+                "stage": "$default",
+                "time": "24/Jun/2022:20:08:35 +0000",
+                "timeEpoch": 1656101315862
+            },
+            "body": "CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NvbG9jYXJfYWd1YV9wcmFfZmVydmVyJ10KIAogICAgaWYgJ2NhcHR1cmFyX2FndWFfZmVydmlkYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiBbJ2NhcHR1cmFyX2FndWFfZmVydmlkYSddCgogICAgcmV0dXJuW10KICAgIGlmICdjb2xvY2FyX21pb2pvX25hX3BhbmVsYScgbm90IGluIGFjb2VzX2NvbXBsZXRhZGFzOgogICAgICAgIHJldHVybiAgWydjb2xvY2FyX21pb2pvX25hX3BhbmVsYSdd",
+            "isBase64Encoded": true
+        },
+        "erro": "name 'CgoKZGVmIHJldG9ybmFfYWNvZXMoYWNvZXNfY29tcGxldGFkYXM6IGxpc3QsIGFjb2VzOiBkaWN0LCBlc3RhZG86IGRpY3QsIHByb2Nlc3NvOiBkaWN0KSAtPiBsaXN0OgoKICAgIGlmICdjb2xvY2FyX2FndWFfcHJhX2ZlcnZlcicgbm90IGluIGFjb2VzX2NvbXBs' is not defined"
+    }
+]

@@ -17,6 +17,10 @@ def faz_requisicao(headers:dict,rota,body=None)->str or dict or list:
     if body.__class__ == dict:
         req['json']= body
 
+    if body.__class__ == str:
+     
+        req['data'] = body
+       
     http = get(**req)
 
     if http.status_code != 200:

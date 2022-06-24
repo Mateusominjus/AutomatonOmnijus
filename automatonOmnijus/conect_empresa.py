@@ -1,3 +1,4 @@
+from copy import deepcopy
 from automatonOmnijus.conect_processo import ConectProcesso
 from automatonOmnijus.requisicao import faz_requisicao
 from typing import List
@@ -43,7 +44,10 @@ class ConectEmpresa:
         return faz_requisicao(headers=self._headers,rota=MODIFICAR_SCHEMA_DE_PROCESSO,body=schema)
 
     def modificar_arquivo_de_cerebro(self,arquivo_de_cerebro:str):
-        return 
+        novo_header = deepcopy(self._headers)
+        novo_header['content-type'] = 'text/plain'
+  
+        return faz_requisicao(headers=novo_header,rota=MODIFICAR_ARQUIVO_DE_CEREBRO,body=arquivo_de_cerebro) 
 
 
 
