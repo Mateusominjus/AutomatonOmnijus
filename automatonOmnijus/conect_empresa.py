@@ -43,12 +43,14 @@ class ConectEmpresa:
     def modificar_schema_do_processo(self,schema:dict):
         return faz_requisicao(headers=self._headers,rota=MODIFICAR_SCHEMA_DE_PROCESSO,body=schema)
 
+
     def modificar_arquivo_de_cerebro(self,arquivo_de_cerebro:str):
         novo_header = deepcopy(self._headers)
         novo_header['content-type'] = 'text/plain'
         return faz_requisicao(headers=novo_header,rota=MODIFICAR_ARQUIVO_DE_CEREBRO,body=arquivo_de_cerebro) 
 
-
+    def remapear_todos_processos(self):
+        return faz_requisicao(headers=self._headers,rota=REMAPEAR_TODOS_PROCESSOS)
 
 
 
