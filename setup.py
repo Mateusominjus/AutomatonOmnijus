@@ -1,5 +1,5 @@
 from setuptools import setup
-
+print('executou antes')
 setup(
     name='automatonOmnijus',
     packages=['automatonOmnijus'],
