@@ -31,7 +31,12 @@ class ConectEmpresa:
     def adicionar_acao_em_erro(self,nome_da_acao:str,log:dict)->dict:
         novo_header = deepcopy(self._headers)
         novo_header['acao'] = nome_da_acao
-        return faz_requisicao(header=novo_header,body=log)
+        return faz_requisicao(headers=novo_header,rota=ADICIONAR_ACAO_A_LISTA_DE_ERROS, body=log)
+    
+    def remover_acao_de_erro(self,nome_da_acao:str):
+        novo_header = deepcopy(self._headers)
+        novo_header['acao'] = nome_da_acao
+        return faz_requisicao(headers=novo_header,rota=REMOVER_ACAO_DA_LISTA_DE_ERROS)
 
 
     def todos_processos(self)->List[int]:
