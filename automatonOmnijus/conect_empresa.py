@@ -33,6 +33,7 @@ class ConectEmpresa:
         novo_header['acao'] = nome_da_acao
         return faz_requisicao(headers=novo_header,rota=ADICIONAR_ACAO_A_LISTA_DE_ERROS, body=log)
     
+    
     def remover_acao_de_erro(self,nome_da_acao:str):
         novo_header = deepcopy(self._headers)
         novo_header['acao'] = nome_da_acao
