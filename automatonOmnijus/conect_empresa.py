@@ -24,6 +24,10 @@ class ConectEmpresa:
         return faz_requisicao(headers=self._headers,rota=LISTAR_ACOES_PENDENTES)
     
 
+    def acoes_em_erro(self)->dict:
+        return faz_requisicao(headers=self._headers,rota=ACOES_EM_ERRO)
+
+
     def todos_processos(self)->List[int]:
         return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
 

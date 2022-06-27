@@ -9,6 +9,9 @@ LISTAR_EMPRESAS = '/dev/listar_empresas'
 ESTADO_INICIAL = '/dev/estado_inicial'
 MODIFICAR_ESTADO_INICIAL =  '/dev/modificar_estado_inicial'
 SCHEMA_DE_PROCESSO = '/dev/schema_de_processo'
+ACOES_EM_ERRO = '/acoes_em_erro'
+ADICIONAR_ACAO_A_LISTA_DE_ERROS = '/adicionar_acao_a_lista_de_erros'
+REMOVER_ACAO_DA_LISTA_DE_ERROS ='/remover_acao_da_lista_de_erros'
 MODIFICAR_SCHEMA_DE_PROCESSO = '/dev/modificar_schema_de_processo'
 PROPRIEDADES_DE_ACOES = '/dev/propriedades_de_acoes'
 MODIFICAR_PROPRIEDADES_ACOES =  '/dev/modificar_propriedades_acoes'
@@ -34,6 +37,9 @@ ROTAS_VALIDAS = [
     ESTADO_INICIAL,
     MODIFICAR_ESTADO_INICIAL,
     SCHEMA_DE_PROCESSO,
+    ACOES_EM_ERRO,
+    ADICIONAR_ACAO_A_LISTA_DE_ERROS,
+    REMOVER_ACAO_DA_LISTA_DE_ERROS,
     MODIFICAR_SCHEMA_DE_PROCESSO,
     PROPRIEDADES_DE_ACOES,
     MODIFICAR_PROPRIEDADES_ACOES,
