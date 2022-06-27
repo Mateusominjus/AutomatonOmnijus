@@ -28,6 +28,12 @@ class ConectEmpresa:
         return faz_requisicao(headers=self._headers,rota=ACOES_EM_ERRO)
 
 
+    def adicionar_acao_em_erro(self,nome_da_acao:str,log:dict)->dict:
+        novo_header = deepcopy(self._headers)
+        novo_header['acao'] = nome_da_acao
+        return faz_requisicao(header=novo_header,body=log)
+
+
     def todos_processos(self)->List[int]:
         return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
 
