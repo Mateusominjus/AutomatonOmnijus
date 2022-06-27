@@ -18,11 +18,13 @@ class ConectProcesso:
         
     def completar_acao(self,nome_da_acao:str,informacoes_do_processo:dict=None,estado:dict=None):
         body = {}
+
         if informacoes_do_processo:
-            body['informacoes_do_processo'] = informacoes_do_processo
+            body['processo'] = informacoes_do_processo
         if estado:
             body['estado'] = estado
-        
+        print(body)
+
         novos_headers = deepcopy(self._headers)   
         novos_headers['acao'] = nome_da_acao
 
