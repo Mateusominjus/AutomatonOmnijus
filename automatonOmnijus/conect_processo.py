@@ -15,6 +15,10 @@ class ConectProcesso:
     
     def dados_do_processo(self)->dict:
         return faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
+    
+    def logs_do_processo(self)->list:
+        return faz_requisicao(headers=self._headers,rota=LOGS_DO_PROCESSO)
+
         
     def completar_acao(self,nome_da_acao:str,informacoes_do_processo:dict=None,estado:dict=None,log:dict=None):
         body = {}
