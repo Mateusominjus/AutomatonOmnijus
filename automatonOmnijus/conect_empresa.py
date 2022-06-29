@@ -16,10 +16,15 @@ class ConectEmpresa:
         'empresa':empresa
        }
 
+    
     def processo(self,processo:int)->ConectProcesso:
         return ConectProcesso(senha=self._senha,empresa=self._empresa,processo=processo)
         
-        
+    def criar_processo(self,processo:str,body:dict={}):
+        novo_header = deepcopy(self._headers)
+        novo_header['processo'] = processo 
+        return faz_requisicao(headers=novo_header,rota=CRIAR_PROCESSO,body=body)
+         
     def acoes_pendentes(self)->List[dict]:
         return faz_requisicao(headers=self._headers,rota=LISTAR_ACOES_PENDENTES)
     
