@@ -19,7 +19,11 @@ class ConectEmpresa:
     
     def processo(self,processo:int)->ConectProcesso:
         return ConectProcesso(senha=self._senha,empresa=self._empresa,processo=processo)
-        
+    
+    def excluir_todos_processos(self):
+        return faz_requisicao(headers=self._headers,rota=EXCLUIR_TODOS_PROCESSOS)
+
+
     def criar_processo(self,processo:str,body:dict={}):
         novo_header = deepcopy(self._headers)
         novo_header['processo'] = processo 

@@ -20,7 +20,7 @@ MODIFICAR_ARQUIVO_DE_CEREBRO = '/dev/modificar_cerebro'
 TODOS_PROCESSOS =  '/todos_processos'
 LISTAR_ACOES_PENDENTES ='/acoes_pendentes'
 REMAPEAR_TODOS_PROCESSOS ='/dev/remapear_todos_processos'
-
+EXCLUIR_TODOS_PROCESSOS = '/dev/excluir_todos_processos'
 #rotas de processo 
 DADOS_DO_PROCESSO = '/dados_do_processo'
 MODIFICAR_PROCESSO = '/modificar_processo'
@@ -29,13 +29,13 @@ COMPLETAR_ACAO_PENDENTE = '/completar_acao'
 REGISTRAR_TENTATIVA_DE_ACAO_PENDENTE =  '/registrar_tentativa_de_acao'
 EXCLUIR_PROCESSO = '/dev/excluir_processo'
 
-
 ROTAS_VALIDAS = [
     LOG_CENTRAL,
     LIMPAR_LOG_CENTRAL,
     LISTAR_EMPRESAS,
     ESTADO_INICIAL,
     MODIFICAR_ESTADO_INICIAL,
+    
     SCHEMA_DE_PROCESSO,
     ACOES_EM_ERRO,
     ADICIONAR_ACAO_A_LISTA_DE_ERROS,
