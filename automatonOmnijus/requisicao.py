@@ -9,7 +9,7 @@ def faz_requisicao(headers:dict,rota,body=None)->str or dict or list:
     if rota not in ROTAS_VALIDAS:
         raise Exception(f'a rota "{rota}" não existe')
         
-    URL = 'https://75s7k5xf4ebqh2sofe676zh7gm0vedtt.lambda-url.us-east-1.on.aws'
+    URL = 'https://rprpa6ga06.execute-api.us-west-2.amazonaws.com'
     req ={
         'url':f'{URL}{rota}',
         'headers':headers
