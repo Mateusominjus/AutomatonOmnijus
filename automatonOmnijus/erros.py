@@ -1,0 +1,6 @@
+
+
+
+class UsuarioNaoExiste(Exception):
+    pass 
+

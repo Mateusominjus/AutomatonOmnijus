@@ -20,8 +20,8 @@ def faz_requisicao(headers:dict,rota,body=None)->str or dict or list:
         req['json']= body
 
     if body.__class__ == str:
-     
         req['data'] = body
+
 
     http = get(**req)
 
