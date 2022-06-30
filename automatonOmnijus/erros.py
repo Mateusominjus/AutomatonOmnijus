@@ -1,6 +1,0 @@
-
-
-
-class UsuarioNaoExiste(Exception):
-    pass 
-
