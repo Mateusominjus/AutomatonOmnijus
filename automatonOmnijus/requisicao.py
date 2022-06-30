@@ -22,15 +22,20 @@ def faz_requisicao(headers:dict,rota,body=None)->str or dict or list:
     if body.__class__ == str:
         req['data'] = body
 
+    for x in range(20):
 
-    http = get(**req)
+        http = get(**req)
+        if http.status_code == 429:
+            continue
 
-    if http.status_code != 200:
-        raise Exception(http.text)
-    else:
-        try:
-            return loads(http.text)
-        except JSONDecodeError:
-            return http.text
+        if http.status_code != 200:
+            raise Exception(http.text)
+        else:
+            try:
+                return loads(http.text)
+            except JSONDecodeError:
+                return http.text
     
+    
+    raise Exception('rotas de escritas bloqueadas')
 
