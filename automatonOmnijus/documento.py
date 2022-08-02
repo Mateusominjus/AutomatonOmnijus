@@ -65,10 +65,12 @@ class Documento:
          }
          post(**req)
     
+
      def excluir(self):
          """Exclui o documento"""
          if self._offline:return 
          faz_requisicao(headers=self._headers,rota=EXCLUIR_DOCUMENTO_DO_PROCESSO)
+    
         
      def gerar_url(self)->str:
          """_cria a url do Documento
