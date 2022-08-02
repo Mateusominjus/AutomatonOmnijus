@@ -1,4 +1,5 @@
 from copy import deepcopy
+from automatonOmnijus.documento import Documento
 from automatonOmnijus.requisicao import faz_requisicao
 from typing import List
 from automatonOmnijus.rotas import *
@@ -7,14 +8,46 @@ from automatonOmnijus.rotas import *
 
 class ConexaoProcesso:
 
-    def __init__(self,senha:str,ambiente:str,processo:str) -> None:
+    def __init__(self,senha:str,ambiente:str,processo:str,offline:bool=False) -> None:
         self.num_processo = processo
+        self.dados_do_processo = {}
+        self.estado = {}
+        self.acoes = []
+        self.documentos:List[Documento] =[]
+        self._senha = senha
+        self._ambiente = ambiente
         self._carregado = False 
+        self._offline = offline 
         self._headers = {
         'senha':senha,
         'ambiente':ambiente,
         'processo':str(processo)
        }
+    
+
+    def criar_processo(self):
+        """Cria um novo processo novo
+        Args:
+            dados_do_processo (dict): Dicionário com os dados do processo
+            estado (dict): Estado do processo
+            acoes (List[dict]): Lista de ações do processo
+        """
+        if self._offline:return 
+        dados = {
+            'processo':self.dados_do_processo,
+            'estado':self.estado,
+            'acoes':self.acoes
+        }
+        faz_requisicao(headers=self._headers,rota=CRIAR_PROCESSO,body=dados)
+        self._carregado = True 
+
+    
+
+    def excluir_processo(self):
+        """Exclui o processo""" 
+        if self._offline:return 
+        faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
+        self._carregado = False
     
 
     def verifica_se_esta_carregado(self):
@@ -23,58 +56,31 @@ class ConexaoProcesso:
             raise Exception('O processo não foi carregado')
 
 
-    def criar_processo(self,dados_do_processo:dict={},estado:dict={},acoes:List[dict]=[]):
-        """Cria um novo processo novo
-        Args:
-            dados_do_processo (dict): Dicionário com os dados do processo
-            estado (dict): Estado do processo
-            acoes (List[dict]): Lista de ações do processo
-        """
-        novo_header = deepcopy(self._headers)
-        novo_header['acao'] = 'criar'
-        dados = {
-            'processo':dados_do_processo,
-            'estado':estado,
-            'acoes':acoes
-        }
-        faz_requisicao(headers=novo_header,rota=CRIAR_PROCESSO,body=dados)
-        self._carregado = True 
-
-
-
-    def excluir_processo(self):
-        """Exclui o processo"""    
-        faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
-        self._carregado = False
-    
-    def recriar_process(self,dados_do_processo:dict={},estado:dict={},acoes:List[dict]=[]):
-        """Recria o processo
-        Args:
-            dados_do_processo (dict): Dicionário com os dados do processo
-            estado (dict): Estado do processo
-            acoes (List[dict]): Lista de ações do processo
-        """
-        self.excluir_processo()
-        self.criar_processo(dados_do_processo,estado,acoes)
-    
-
-
     def carregar_processo(self):
         """Carrega o processo
         Returns:
             dict: Dicionário com o processo
         """
+        if self._offline:return 
         carregamento = faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
         self.dados_do_processo = carregamento['processo']
         self.estado = carregamento['estado']
         self.acoes = carregamento['acoes']
+        for doc in carregamento['documentos']:
+            self.documentos.append(Documento(
+                senha=self._senha,
+                ambiente=self._ambiente,
+                nome=doc['nome'],
+                hash=doc['hash'],
+                processo=self.num_processo,
+                offline=self._offline
+            ))
         self._carregado = True
     
-
     def salvar_processo(self):
         """Salva os dados do processo"""
-        self.verifica_se_esta_carregado()
-        novo_header = deepcopy(self._headers)    
+        if self._offline:return 
+        self.verifica_se_esta_carregado()    
         dados = {
             'processo':self.dados_do_processo,
             'estado':self.estado,
@@ -83,4 +89,10 @@ class ConexaoProcesso:
         
         faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
 
-
+    def __repr__(self) -> str:
+        return f"""Processo: {self.num_processo}
+Carregado: {self._carregado}
+Offline: {self._offline}
+Dados do processo: {self.dados_do_processo}
+Estado: {self.estado}
+Ações: {self.acoes}"""
