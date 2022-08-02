@@ -19,14 +19,14 @@ class ConexaoAmbiente:
             'ambiente':ambiente
         }
 
-    def processo(self,processo:int)->ConexaoProcesso:
+    def processo(self,processo:int,carregar:bool=False)->ConexaoProcesso:
         """Retorna uma Conexão com o processo
         Args:
             processo (int): Número do processo
         Returns:
             ConexaoProcesso: Conexão com o processo
         """
-        return ConexaoProcesso(senha=self._senha,ambiente=self._ambiente,processo=processo)
+        return ConexaoProcesso(senha=self._senha,ambiente=self._ambiente,processo=processo,carregar=carregar)
     
 
 
@@ -46,7 +46,7 @@ class ConexaoAmbiente:
         return faz_requisicao(headers=self._headers,rota=ACOES_EM_ERRO)
 
 
-    def adicionar_acao_em_erro(self,nome_da_acao:str,log:dict)->dict:
+    def adicionar_acao_em_erro(self,nome_da_acao:str,log:dict):
         """Adiciona uma ação em erro
         Args:
             nome_da_acao (str): Nome da ação
@@ -81,7 +81,12 @@ class ConexaoAmbiente:
         """
         return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
 
-
+    def processos(self)->List[ConexaoProcesso]:
+        """Retorna uma lista com todos os processos da ambiente
+        Returns:
+            List[ConexaoProcesso]: Lista com todos os processos
+        """
+        return [self.processo(processo) for processo in self.numero_de_todos_processos()]
 
 
 

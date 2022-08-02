@@ -1,4 +1,5 @@
 from copy import deepcopy
+from json import dumps
 from automatonOmnijus.documento import Documento
 from automatonOmnijus.requisicao import faz_requisicao
 from typing import List
@@ -8,7 +9,7 @@ from automatonOmnijus.rotas import *
 
 class ConexaoProcesso:
 
-    def __init__(self,senha:str,ambiente:str,processo:str,offline:bool=False) -> None:
+    def __init__(self,senha:str,ambiente:str,processo:str,offline:bool=False,carregar:bool=False) -> None:
         self.num_processo = processo
         self.dados_do_processo = {}
         self.estado = {}
@@ -24,6 +25,10 @@ class ConexaoProcesso:
         'processo':str(processo)
        }
     
+        if carregar:
+            self.carregar_processo()
+            self._carregado = True
+
 
     def criar_processo(self):
         """Cria um novo processo novo
@@ -115,9 +120,18 @@ class ConexaoProcesso:
         faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
 
     def __repr__(self) -> str:
-        return f"""Processo: {self.num_processo}
+
+        #ident the is of documents in tab 4
+
+        text =  f"""Processo: {self.num_processo}
 Carregado: {self._carregado}
 Offline: {self._offline}
-Dados do processo: {self.dados_do_processo}
 Estado: {self.estado}
-Ações: {self.acoes}"""
+Dados do processo: {dumps(self.dados_do_processo,indent=4)}
+Acoes: {dumps(self.acoes,indent=4)}
+"""
+        text+='Documentos:'
+        for doc in self.documentos:
+            text += '\n\t' + str(doc).replace('\n','\n\t') 
+            text+='\n' + '-'* 100
+        return text
