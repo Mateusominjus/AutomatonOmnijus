@@ -123,7 +123,7 @@ class ConexaoProcesso:
 
         #ident the is of documents in tab 4
 
-        text =  f"""Processo: {self.num_processo}
+        text = '\n' + '=' *100 + f"""\nProcesso: {self.num_processo}
 Carregado: {self._carregado}
 Offline: {self._offline}
 Estado: {self.estado}
@@ -132,6 +132,7 @@ Acoes: {dumps(self.acoes,indent=4)}
 """
         text+='Documentos:'
         for doc in self.documentos:
+            text+='\n\t' + '-'* 100
             text += '\n\t' + str(doc).replace('\n','\n\t') 
-            text+='\n' + '-'* 100
+
         return text
