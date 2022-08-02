@@ -115,6 +115,7 @@ class ConexaoProcesso:
         Returns:
             Documento: Documento do processo
         """
+
         self.verifica_se_esta_carregado()
         doc = Documento(
             senha=self._senha,
@@ -125,6 +126,10 @@ class ConexaoProcesso:
         )
 
         self.documentos.append(doc)
+        try:
+            doc.fazer_upload_de_documento(nome)
+        except FileNotFoundError:pass 
+        
         return doc
 
 
