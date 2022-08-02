@@ -27,8 +27,8 @@ class ConexaoCentral:
         return ConexaoAmbiente(senha=self._senha,ambiente=ambiente)
 
 
-    def processo(self,empresa:str,processo:int)->ConexaoProcesso:
-        return ConexaoProcesso(senha=self._senha,empresa=empresa,processo=processo)
+    def processo(self,ambiente:str,processo:int)->ConexaoProcesso:
+        return ConexaoProcesso(senha=self._senha,ambiente=ambiente,processo=processo)
         
     
     def lista_logs_da_central(self)->List[Dict]:

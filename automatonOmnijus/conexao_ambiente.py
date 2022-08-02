@@ -19,8 +19,19 @@ class ConexaoAmbiente:
             'ambiente':ambiente
         }
 
-
+    def processo(self,processo:int)->ConexaoProcesso:
+        """Retorna uma Conexão com o processo
+        Args:
+            processo (int): Número do processo
+        Returns:
+            ConexaoProcesso: Conexão com o processo
+        """
+        return ConexaoProcesso(senha=self._senha,ambiente=self._ambiente,processo=processo)
     
+
+
+
+
     def excluir_todos_processos(self):
         """Exclui todos os processos da ambiente
         """

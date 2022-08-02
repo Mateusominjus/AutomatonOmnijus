@@ -5,4 +5,5 @@ from automatonOmnijus import ConexaoCentral
 central = ConexaoCentral(senha='omnijus01dev')
 exemplo = central.ambiente('exemplo')
 
-exemplo.remover_todas_acoes_da_lista_de_erros()
+p2 = exemplo.processo(3)
+p2.excluir()
