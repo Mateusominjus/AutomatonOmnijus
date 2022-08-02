@@ -3,7 +3,7 @@ from attr import has
 from automatonOmnijus.rotas import * 
 from automatonOmnijus.requisicao import faz_requisicao
 from automatonOmnijus.rotas import VISUALIZAR_DOCUMENTO
-from requests import get
+from requests import get,post
 class Documento:
 
      def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None,offline:bool=False) -> None:
@@ -33,7 +33,8 @@ class Documento:
          }
          doc = get(**req)
          return doc.content
-    
+     
+         
      def baixar_documento(self,path:str=None):
          """ Baixa o documento do processo
          Args:
@@ -44,8 +45,31 @@ class Documento:
          binario = self.baixar_binario_do_documento()
          with open(path,'wb') as f:
             f.write(binario)
-            f.close()
-            
+            f.close() 
+     
+
+     def fazer_upload_de_documento(self,elemento:str or bytes):
+         """Faz o upload do documento
+         Args:
+             elemento (str or bytes): O elemento a ser enviado podendo ser um path ou um binário
+         """
+         if isinstance(elemento,str):
+            with open(elemento,'rb') as f:
+                binario = f.read()
+         else:
+            binario = elemento
+         req ={
+            'url':f'{URL}{ADICIONAR_DOCUMENTO_DO_PROCESSO}',
+            'headers':self._headers,
+            'data':binario
+         }
+         post(**req)
+    
+     def excluir(self):
+         """Exclui o documento"""
+         if self._offline:return 
+         faz_requisicao(headers=self._headers,rota=EXCLUIR_DOCUMENTO_DO_PROCESSO)
+        
      def gerar_url(self)->str:
          """_cria a url do Documento
          Returns:
@@ -60,10 +84,6 @@ class Documento:
          return f'{URL}{VISUALIZAR_DOCUMENTO}?{query_string}'
 
 
-     def fazer_upload_de_documento(self,path:str):
-        with open(path,'rb') as f:
-            binario = f.read()
-            faz_requisicao(headers=self._headers,rota=ADICIONAR_DOCUMENTO_DO_PROCESSO,body=binario)
 
 
      def __repr__(self):

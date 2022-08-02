@@ -14,7 +14,7 @@ class ConexaoProcesso:
         self.dados_do_processo = {}
         self.estado = {}
         self.acoes = []
-        self._lista_de_documentos:List[Documento] =[]
+        self.documentos:List[Documento] =[]
         self._senha = senha
         self._ambiente = ambiente
         self._carregado = False 
@@ -74,7 +74,7 @@ class ConexaoProcesso:
         self.acoes = carregamento['acoes']
     
         for doc in carregamento['documentos']:
-            self._lista_de_documentos.append(Documento(
+            self.documentos.append(Documento(
                 senha=self._senha,
                 ambiente=self._ambiente,
                 nome=doc['nome'],
@@ -124,41 +124,22 @@ class ConexaoProcesso:
             offline=self._offline
         )
 
-        self._lista_de_documentos.append(doc)
+        self.documentos.append(doc)
         return doc
 
 
-    def documentos(self,nome:str=None,hash:str=None):
-        """Retorna todos os documentos do processo
+    def documento(self,nome:str) -> Documento:
+        """Retorna o documento com o nome passado
         Args:
             nome (str): Nome do documento
-            hash (str): Hash do documento
-        Returns:
-            List[Documento]: Lista de documentos do processo
-        """
-        self.verifica_se_esta_carregado()
-        if not nome and not hash:
-            return self._lista_de_documentos
-        else:
-            return [doc for doc in self._lista_de_documentos if doc.nome == nome or doc.hash == hash]
-
-
-    def documento(self,nome:str=None,hash:str=None):
-        """Retorna o documento do processo
-        Args:
-            nome (str): Nome do documento
-            hash (str): Hash do documento
         Returns:
             Documento: Documento do processo
         """
-        if not nome and not hash:
-            raise Exception('Nome ou hash do documento não fornecidos')
-        try:
-            return self.documentos(nome,hash)[-1]
-        except IndexError:
-            raise Exception('Documento não encontrado')
-
-
+        for doc in self.documentos:
+            if doc.nome == nome:
+                return doc
+    
+        raise Exception('Documento não encontrado')
 
     def __repr__(self) -> str:
 
@@ -172,7 +153,7 @@ Dados do processo: {dumps(self.dados_do_processo,indent=4)}
 Acoes: {dumps(self.acoes,indent=4)}
 """
         text+='Documentos:'
-        for doc in self._lista_de_documentos:
+        for doc in self.documentos:
             text+='\n\t' + '-'* 100
             text += '\n\t' + str(doc).replace('\n','\n\t') 
 
