@@ -30,7 +30,7 @@ class ConexaoAmbiente:
     
 
 
-
+    
 
     def excluir_todos_processos(self):
         """Exclui todos os processos da ambiente

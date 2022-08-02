@@ -116,7 +116,6 @@ class ConexaoProcesso:
             Documento: Documento do processo
         """
 
-        self.verifica_se_esta_carregado()
         doc = Documento(
             senha=self._senha,
             ambiente=self._ambiente,
@@ -124,8 +123,8 @@ class ConexaoProcesso:
             processo=self.num_processo,
             offline=self._offline
         )
-
-        self.documentos.append(doc)
+        if self._carregado:
+            self.documentos.append(doc)
         try:
             doc.fazer_upload_de_documento(nome)
         except FileNotFoundError:pass 
