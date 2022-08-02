@@ -16,15 +16,15 @@ class ConexaoCentral:
             'senha':senha
         }
         
-    def ambiente(self,empresa:str)->ConexaoAmbiente:
+    def ambiente(self,ambiente:str)->ConexaoAmbiente:
         """Retorna uma Conexão com o ambiente
         Args:
-            empresa (str): Nome da empresa
+            ambiente (str): Nome do ambiente
         Returns:
-            ConectEmpresa: Conexão com a empresa
+            ConexaoAmbiente: Conexão com o ambiente
         """
 
-        return ConexaoAmbiente(senha=self._senha,empresa=empresa)
+        return ConexaoAmbiente(senha=self._senha,ambiente=ambiente)
 
 
     def processo(self,empresa:str,processo:int)->ConexaoProcesso:

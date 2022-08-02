@@ -58,6 +58,11 @@ class ConexaoAmbiente:
         return faz_requisicao(headers=novo_header,rota=REMOVER_ACAO_DA_LISTA_DE_ERROS)
 
 
+    def remover_todas_acoes_da_lista_de_erros(self):
+        """Remove todas as ações da lista de erros"""
+        return faz_requisicao(headers=self._headers,rota=REMOVER_TODAS_ACOES_DA_LISTA_DE_ERROS)
+    
+
     def numero_de_todos_processos(self)->List[int]:
         """Retorna uma lista com o número todos os processos da ambiente
         Returns:
