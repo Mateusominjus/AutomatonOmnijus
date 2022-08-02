@@ -30,7 +30,15 @@ class Documento:
         }
         doc = get(**req)
         return doc.content
-
+    
+     def baixar_documento(self,path:str=None):
+        if path is None:
+            path = self.nome
+        binario = self.baixar_binario_do_documento()
+        with open(path,'wb') as f:
+            f.write(binario)
+            f.close()
+            
      def gerar_url(self):
         query_string = ''
         copia_headers = self._headers.copy()
@@ -41,14 +49,7 @@ class Documento:
     
         return f'{URL}{VISUALIZAR_DOCUMENTO}?{query_string}'
 
-    
-     def salvar_documento(self,path:str=None):
-        if path is None:
-            path = self.nome
-        binario = self.baixar_binario_do_documento()
-        with open(path,'wb') as f:
-            f.write(binario)
-            f.close()
+
 
 
      def __repr__(self):
