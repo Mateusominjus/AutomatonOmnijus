@@ -76,7 +76,31 @@ class ConexaoProcesso:
                 offline=self._offline
             ))
         self._carregado = True
-    
+        return self 
+
+    def documento(self,nome:str=None,hash:str=None) -> Documento:
+        """Retorna um documento do processo
+        Args:
+            nome (str): Nome do documento
+            hash (str): Hash do documento
+        Returns:
+            Documento: Documento do processo
+        """
+        for doc in self.documentos:
+            if not nome:
+                if doc.hash == hash:
+                    return doc
+            elif not hash:
+                if doc.nome == nome:
+                    return doc
+            elif doc and hash:
+                if doc.nome == nome and doc.hash == hash:
+                    return doc
+            else:
+                raise Exception('Nome ou hash não fornecidos')
+        
+        raise Exception('Documento não encontrado')
+
     def salvar_processo(self):
         """Salva os dados do processo"""
         if self._offline:return 

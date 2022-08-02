@@ -31,7 +31,29 @@ class Documento:
         doc = get(**req)
         return doc.content
 
+     def gerar_url(self):
+        query_string = ''
+        copia_headers = self._headers.copy()
+        copia_headers['baixar'] = 'false'
+        copia_headers.pop('senha')
+        for x in copia_headers:
+            query_string += f'{x}={copia_headers[x]}&'
     
-     def salvar(self,local:str):
-        pass 
+        return f'{URL}{VISUALIZAR_DOCUMENTO}?{query_string}'
+
+    
+     def salvar_documento(self,path:str=None):
+        if path is None:
+            path = self.nome
+        binario = self.baixar_binario_do_documento()
+        with open(path,'wb') as f:
+            f.write(binario)
+            f.close()
+
+
+     def __repr__(self):
+        return f"""Documento: {self.nome}
+Hash: {self.hash}
+Offline: {self._offline}
+Query string: {self.gerar_url()}"""
 
