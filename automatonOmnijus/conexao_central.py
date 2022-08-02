@@ -38,7 +38,10 @@ class ConexaoCentral:
         """
         return faz_requisicao(headers=self._headers,rota=LOG_CENTRAL)
 
-    def limpa_log_central(self):
-        """Limpa o log da central"""
+    def limpa_log_central(self)->str:
+        """Limpa o log da central
+        Returns:
+            str: o texto retornado pela central
+        """
         return faz_requisicao(headers=self._headers, rota=LIMPAR_LOG_CENTRAL)
     

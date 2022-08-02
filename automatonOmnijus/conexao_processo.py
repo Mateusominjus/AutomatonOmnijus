@@ -14,7 +14,7 @@ class ConexaoProcesso:
         self.dados_do_processo = {}
         self.estado = {}
         self.acoes = []
-        self.documentos:List[Documento] =[]
+        self._lista_de_documentos:List[Documento] =[]
         self._senha = senha
         self._ambiente = ambiente
         self._carregado = False 
@@ -37,6 +37,8 @@ class ConexaoProcesso:
             dados_do_processo (dict): Dicionário com os dados do processo
             estado (dict): Estado do processo
             acoes (List[dict]): Lista de ações do processo
+        Returns:         
+            str: o texto retornado pela central
         """
         if self._offline:return 
         dados = {
@@ -50,11 +52,16 @@ class ConexaoProcesso:
     
 
     def excluir_processo(self):
-        """Exclui o processo""" 
+        """Exclui o processo
+        Returns:         
+            str: o texto retornado pela central
+        """ 
         if self._offline:return 
         faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
         self._carregado = False
     
+
+
     def carregar_processo(self):
         """Carrega o processo
         Returns:
@@ -65,8 +72,9 @@ class ConexaoProcesso:
         self.dados_do_processo = carregamento['processo']
         self.estado = carregamento['estado']
         self.acoes = carregamento['acoes']
+    
         for doc in carregamento['documentos']:
-            self.documentos.append(Documento(
+            self._lista_de_documentos.append(Documento(
                 senha=self._senha,
                 ambiente=self._ambiente,
                 nome=doc['nome'],
@@ -83,8 +91,12 @@ class ConexaoProcesso:
         if not self._carregado:
             raise Exception('O processo não foi carregado')
 
-    def salvar_processo_localmente(self):
-        """Salva os dados do processo"""
+
+    def salvar_processo(self):
+        """Salva os dados do processo
+        Returns:         
+            str: o texto retornado pela central
+        """
         if self._offline:return 
         self.verifica_se_esta_carregado()    
         dados = {
@@ -93,40 +105,58 @@ class ConexaoProcesso:
             'acoes':self.acoes
         }
         
-        faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
+        return faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
 
 
-    def documento(self,nome:str=None,hash:str=None) -> Documento:
-        """Retorna um documento do processo
+    def novo_documento(self,nome:str) -> Documento:
+        """Cria um novo documento
+        Args:
+            nome (str): Nome do documento
+        Returns:
+            Documento: Documento do processo
+        """
+        self.verifica_se_esta_carregado()
+        doc = Documento(
+            senha=self._senha,
+            ambiente=self._ambiente,
+            nome=nome,
+            processo=self.num_processo,
+            offline=self._offline
+        )
+
+        self._lista_de_documentos.append(doc)
+        return doc
+
+
+    def documentos(self,nome:str=None,hash:str=None):
+        """Retorna todos os documentos do processo
+        Args:
+            nome (str): Nome do documento
+            hash (str): Hash do documento
+        Returns:
+            List[Documento]: Lista de documentos do processo
+        """
+        self.verifica_se_esta_carregado()
+        if not nome and not hash:
+            return self._lista_de_documentos
+        else:
+            return [doc for doc in self._lista_de_documentos if doc.nome == nome or doc.hash == hash]
+
+
+    def documento(self,nome:str=None,hash:str=None):
+        """Retorna o documento do processo
         Args:
             nome (str): Nome do documento
             hash (str): Hash do documento
         Returns:
             Documento: Documento do processo
         """
-        for doc in self.documentos:
-            if not nome:
-                if doc.hash == hash:
-                    return doc
-            elif not hash:
-                if doc.nome == nome:
-                    return doc
-            elif doc and hash:
-                if doc.nome == nome and doc.hash == hash:
-                    return doc
-            else:
-                raise Exception('Nome ou hash não fornecidos')
-        
-        self.documentos.append(
-            Documento(senha=self._senha,
-                      ambiente=self._ambiente,
-                      nome=nome,
-                      hash=hash,
-                      processo=self.num_processo,
-                      offline=self._offline
-            )
-        )
-
+        if not nome and not hash:
+            raise Exception('Nome ou hash do documento não fornecidos')
+        try:
+            return self.documentos(nome,hash)[-1]
+        except IndexError:
+            raise Exception('Documento não encontrado')
 
 
 
@@ -142,7 +172,7 @@ Dados do processo: {dumps(self.dados_do_processo,indent=4)}
 Acoes: {dumps(self.acoes,indent=4)}
 """
         text+='Documentos:'
-        for doc in self.documentos:
+        for doc in self._lista_de_documentos:
             text+='\n\t' + '-'* 100
             text += '\n\t' + str(doc).replace('\n','\n\t') 
 

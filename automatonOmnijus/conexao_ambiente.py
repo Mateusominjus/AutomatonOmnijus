@@ -34,6 +34,8 @@ class ConexaoAmbiente:
 
     def excluir_todos_processos(self):
         """Exclui todos os processos da ambiente
+        Returns:         
+            str: o texto retornado pela central
         """
         return faz_requisicao(headers=self._headers,rota=REMOVER_TODOS_PROCESSOS)
 
@@ -63,6 +65,8 @@ class ConexaoAmbiente:
         """Remove uma ação de erro
         Args:
             nome_da_acao (str): Nome da ação
+        Returns:         
+            str: o texto retornado pela central
         """
         novo_header = deepcopy(self._headers)
         novo_header['acao'] = nome_da_acao
@@ -70,7 +74,10 @@ class ConexaoAmbiente:
 
 
     def remover_todas_acoes_da_lista_de_erros(self):
-        """Remove todas as ações da lista de erros"""
+        """Remove todas as ações da lista de erros
+        Returns:         
+            str: o texto retornado pela central
+        """
         return faz_requisicao(headers=self._headers,rota=REMOVER_TODAS_ACOES_DA_LISTA_DE_ERROS)
     
 
