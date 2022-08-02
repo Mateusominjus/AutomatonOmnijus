@@ -1,3 +1,3 @@
-from automatonOmnijus.conexao_central import ConectCentral
-from automatonOmnijus.conect_ambiente import ConectEmpresa
-from automatonOmnijus.conect_processo import ConectProcesso
+from automatonOmnijus.conexao_central import ConexaoAmbiente
+from automatonOmnijus.conexao_ambiente import ConexaoAmbiente
+from automatonOmnijus.conexao_processo import  ConexaoProcesso

@@ -1,10 +1,10 @@
 from typing import Dict, List
 from automatonOmnijus.rotas import *
 from automatonOmnijus.requisicao import faz_requisicao
-from automatonOmnijus.conect_ambiente import ConectAmbiente
-from automatonOmnijus.conect_processo import ConectProcesso
+from automatonOmnijus.conexao_ambiente import ConexaoAmbiente
+from automatonOmnijus.conexao_processo import ConectProcesso
 
-class ConectCentral:
+class ConexaoCentral:
 
     def __init__(self,senha:str) -> None:
         self._senha = senha
@@ -12,7 +12,7 @@ class ConectCentral:
             'senha':senha
         }
         
-    def ambiente(self,empresa:str)->ConectAmbiente:
+    def ambiente(self,empresa:str)->ConexaoAmbiente:
         """Retorna uma Conexão com o ambiente
         Args:
             empresa (str): Nome da empresa
@@ -20,10 +20,9 @@ class ConectCentral:
             ConectEmpresa: Conexão com a empresa
         """
 
-        return ConectAmbiente(senha=self._senha,empresa=empresa)
+        return ConexaoAmbiente(senha=self._senha,empresa=empresa)
 
     def processo(self,empresa:str,processo:int)->ConectProcesso:
-
         return ConectProcesso(senha=self._senha,empresa=empresa,processo=processo)
         
     

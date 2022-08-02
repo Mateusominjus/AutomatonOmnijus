@@ -1,10 +1,10 @@
 from copy import deepcopy
-from automatonOmnijus.conect_processo import ConectProcesso
+from automatonOmnijus.conexao_processo import ConexaoProcesso
 from automatonOmnijus.requisicao import faz_requisicao
 from typing import List
 from automatonOmnijus.rotas import *
 
-class ConectAmbiente:
+class ConexaoAmbiente:
 
     def __init__(self,senha:str,ambiente:str) -> None:
        self._senha = senha 
