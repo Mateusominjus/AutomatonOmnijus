@@ -108,7 +108,7 @@ class ConexaoProcesso:
         return faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
 
 
-    def novo_documento(self,nome:str) -> Documento:
+    def novo_documento(self,nome:str=None) -> Documento:
         """Cria um novo documento
         Args:
             nome (str): Nome do documento

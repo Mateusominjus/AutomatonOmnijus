@@ -7,29 +7,42 @@ from requests import get,post
 class Documento:
 
      def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None,offline:bool=False) -> None:
+    
         self.num_processo = processo
         self.nome = nome
         self.hash = hash 
+        self._senha = senha
+        self._ambiente  = ambiente
         self._offline = offline 
         
-        self._headers = {
-        'senha':senha,
-        'ambiente':ambiente,
-        'processo':str(processo),
-        'documento':nome,
-        'hash':hash,
+
+     def cria_headers(self) -> None:
+        return {
+        'senha':self._senha,
+        'ambiente':self._ambiente,
+        'processo':str(self._num_processo),
+        'documento':self.nome,
+        'hash':self.hash,
         'baixar':'true'
        }
-    
-    
+
+     def verifica_se_possui_headers_de_acesso(self):
+        if not self.nome:
+            raise ValueError('Nome do documento não definido')
+        if not self.hash:
+            raise ValueError('Hash do documento não definido')
+
+     
      def baixar_binario_do_documento(self)->bytes:
          """ Baixa binário do documento
          Returns:
              bytes: o binário do documento 
          """
+         if self._offline:return 
+         self.verifica_se_possui_headers_de_acesso()
          req ={
             'url':f'{URL}{VISUALIZAR_DOCUMENTO}',
-            'headers':self._headers
+            'headers':self.cria_headers()
          }
          doc = get(**req)
          return doc.content
@@ -40,6 +53,8 @@ class Documento:
          Args:
              path (str, optional): Onde salvar o documento. Defaults to None.
          """
+         if self._offline:return 
+
          if path is None:
             path = self.nome
          binario = self.baixar_binario_do_documento()
@@ -53,14 +68,20 @@ class Documento:
          Args:
              elemento (str or bytes): O elemento a ser enviado podendo ser um path ou um binário
          """
+         if self._offline:return 
+        
+            
          if isinstance(elemento,str):
+            if not self.nome:
+                self.nome = elemento.split('/')[-1]
+                
             with open(elemento,'rb') as f:
                 binario = f.read()
          else:
             binario = elemento
          req ={
             'url':f'{URL}{ADICIONAR_DOCUMENTO_DO_PROCESSO}',
-            'headers':self._headers,
+            'headers':self.cria_headers(),
             'data':binario
          }
          post(**req)
@@ -69,7 +90,8 @@ class Documento:
      def excluir(self):
          """Exclui o documento"""
          if self._offline:return 
-         faz_requisicao(headers=self._headers,rota=EXCLUIR_DOCUMENTO_DO_PROCESSO)
+         self.verifica_se_possui_headers_de_acesso()
+         faz_requisicao(headers=self.cria_headers(),rota=EXCLUIR_DOCUMENTO_DO_PROCESSO)
     
         
      def gerar_url(self)->str:
@@ -78,7 +100,7 @@ class Documento:
              str: a url do documento 
          """
          query_string = ''
-         copia_headers = self._headers.copy()
+         copia_headers = self.cria_headers()
          copia_headers['baixar'] = 'false'
          copia_headers.pop('senha')
          for x in copia_headers:
