@@ -101,7 +101,8 @@ class ConexaoProcesso:
         
         raise Exception('Documento não encontrado')
 
-    def salvar_processo(self):
+
+    def salvar_processo_localmente(self):
         """Salva os dados do processo"""
         if self._offline:return 
         self.verifica_se_esta_carregado()    
