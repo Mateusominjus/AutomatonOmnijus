@@ -19,7 +19,7 @@ class ConexaoAmbiente:
             'ambiente':ambiente
         }
 
-    def processo(self,processo:int,carregar:bool=False)->ConexaoProcesso:
+    def processo(self,processo:str,carregar:bool=False)->ConexaoProcesso:
         """Retorna uma Conexão com o processo
         Args:
             processo (int): Número do processo
