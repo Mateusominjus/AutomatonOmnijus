@@ -50,6 +50,10 @@ class Documento:
         return f'{URL}{VISUALIZAR_DOCUMENTO}?{query_string}'
 
 
+     def fazer_upload_de_documento(self,path:str):
+        with open(path,'rb') as f:
+            binario = f.read()
+            faz_requisicao(headers=self._headers,rota=ADICIONAR_DOCUMENTO_DO_PROCESSO,body=binario)
 
 
      def __repr__(self):
