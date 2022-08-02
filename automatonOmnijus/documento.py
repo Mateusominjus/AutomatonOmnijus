@@ -4,6 +4,7 @@ from automatonOmnijus.rotas import *
 from automatonOmnijus.requisicao import faz_requisicao
 from automatonOmnijus.rotas import VISUALIZAR_DOCUMENTO
 from requests import get,post
+from json import loads
 class Documento:
 
      def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None,offline:bool=False) -> None:
@@ -20,7 +21,7 @@ class Documento:
         return {
         'senha':self._senha,
         'ambiente':self._ambiente,
-        'processo':str(self._num_processo),
+        'processo':str(self.num_processo),
         'documento':self.nome,
         'hash':self.hash,
         'baixar':'true'
@@ -74,7 +75,7 @@ class Documento:
          if isinstance(elemento,str):
             if not self.nome:
                 self.nome = elemento.split('/')[-1]
-                
+
             with open(elemento,'rb') as f:
                 binario = f.read()
          else:
@@ -84,9 +85,13 @@ class Documento:
             'headers':self.cria_headers(),
             'data':binario
          }
-         post(**req)
-    
+         resp =  post(**req)
+         if resp.status_code != 200:
+            raise Exception(resp.text)
 
+         dados = loads(resp.text)
+         self.hash = dados['hash']
+         
      def excluir(self):
          """Exclui o documento"""
          if self._offline:return 
