@@ -1,61 +1,62 @@
-# rotas globais
+URL = 'https://lfklzr5jsotrttsdjaymmzky7q0tlvtn.lambda-url.us-east-1.on.aws'
 LOG_CENTRAL = '/dev/log_central'
 LIMPAR_LOG_CENTRAL ='/dev/limpar_log_central'
-CRIAR_EMPRESA = '/dev/criar_empresa'
-LISTAR_EMPRESAS = '/dev/listar_empresas'
 
 
-#rotas de empresa
-ESTADO_INICIAL = '/dev/estado_inicial'
-MODIFICAR_ESTADO_INICIAL =  '/dev/modificar_estado_inicial'
-SCHEMA_DE_PROCESSO = '/dev/schema_de_processo'
-ACOES_EM_ERRO = '/acoes_em_erro'
+REMOVER_TODOS_PROCESSOS = '/dev/remover_todos_processos'
 ADICIONAR_ACAO_A_LISTA_DE_ERROS = '/adicionar_acao_a_lista_de_erros'
+ACOES_EM_ERRO = '/acoes_em_erro'
 REMOVER_ACAO_DA_LISTA_DE_ERROS ='/remover_acao_da_lista_de_erros'
-MODIFICAR_SCHEMA_DE_PROCESSO = '/dev/modificar_schema_de_processo'
-PROPRIEDADES_DE_ACOES = '/dev/propriedades_de_acoes'
-MODIFICAR_PROPRIEDADES_ACOES =  '/dev/modificar_propriedades_acoes'
-ARQUIVO_DE_CEREBRO = '/dev/arquivo_de_cerebro'
-MODIFICAR_ARQUIVO_DE_CEREBRO = '/dev/modificar_cerebro'
+REMOVER_TODAS_ACOES_DA_LISTA_DE_ERROS ='/remover_todas_acoes_da_lista_de_erros'
 TODOS_PROCESSOS =  '/todos_processos'
-LISTAR_ACOES_PENDENTES ='/acoes_pendentes'
-REMAPEAR_TODOS_PROCESSOS ='/dev/remapear_todos_processos'
-EXCLUIR_TODOS_PROCESSOS = '/dev/excluir_todos_processos'
-#rotas de processo 
+VISUALIZAR_DOCUMENTO = '/visualizar_documento'
+
 DADOS_DO_PROCESSO = '/dados_do_processo'
 MODIFICAR_PROCESSO = '/modificar_processo'
 CRIAR_PROCESSO = '/criar_processo'
-COMPLETAR_ACAO_PENDENTE = '/completar_acao'
-REGISTRAR_TENTATIVA_DE_ACAO_PENDENTE =  '/registrar_tentativa_de_acao'
 EXCLUIR_PROCESSO = '/dev/excluir_processo'
-LOGS_DO_PROCESSO =  '/logs_do_processo'
-ROTAS_VALIDAS = [
+ADICIONAR_DOCUMENTO_DO_PROCESSO = '/adicionar_documento_do_processo'
+EXCLUIR_DOCUMENTO_DO_PROCESSO = '/dev/excluir_documento_do_processo'
+
+
+
+ROTAS_GLOBAIS = [
     LOG_CENTRAL,
-    LIMPAR_LOG_CENTRAL,
-    ESTADO_INICIAL,
-    MODIFICAR_ESTADO_INICIAL,
-    EXCLUIR_TODOS_PROCESSOS,
-    SCHEMA_DE_PROCESSO,
+    LIMPAR_LOG_CENTRAL
+]
+
+ROTAS_DE_AMBIENTE =[
+    REMOVER_TODOS_PROCESSOS,
     ACOES_EM_ERRO,
     ADICIONAR_ACAO_A_LISTA_DE_ERROS,
-    REMOVER_ACAO_DA_LISTA_DE_ERROS,
-    MODIFICAR_SCHEMA_DE_PROCESSO,
-    PROPRIEDADES_DE_ACOES,
-    MODIFICAR_PROPRIEDADES_ACOES,
-    LOGS_DO_PROCESSO,
-    ARQUIVO_DE_CEREBRO,
-    MODIFICAR_ARQUIVO_DE_CEREBRO,
-    LISTAR_ACOES_PENDENTES,
-    TODOS_PROCESSOS,
-    REMAPEAR_TODOS_PROCESSOS,
+    REMOVER_ACAO_DA_LISTA_DE_ERROS, 
+    REMOVER_TODAS_ACOES_DA_LISTA_DE_ERROS,
+    TODOS_PROCESSOS
+]
+
+
+ROTAS_DE_PROCESSO = [
    DADOS_DO_PROCESSO,
    MODIFICAR_PROCESSO,
-   COMPLETAR_ACAO_PENDENTE,
-   REGISTRAR_TENTATIVA_DE_ACAO_PENDENTE,
    EXCLUIR_PROCESSO,
-   CRIAR_PROCESSO
+   CRIAR_PROCESSO,
+   VISUALIZAR_DOCUMENTO,
+   ADICIONAR_DOCUMENTO_DO_PROCESSO,
+   EXCLUIR_DOCUMENTO_DO_PROCESSO
+]
+
+ROTAS_DE_ESCRITA =[
+    LIMPAR_LOG_CENTRAL,
+    ADICIONAR_ACAO_A_LISTA_DE_ERROS,
+    REMOVER_ACAO_DA_LISTA_DE_ERROS,
+    REMOVER_TODOS_PROCESSOS,
+    ADICIONAR_DOCUMENTO_DO_PROCESSO,
+    EXCLUIR_DOCUMENTO_DO_PROCESSO,
+    MODIFICAR_PROCESSO,
+    CRIAR_PROCESSO,
+    EXCLUIR_PROCESSO,
 ]
 
 
 
-
+ROTAS_VALIDAS = ROTAS_GLOBAIS + ROTAS_DE_AMBIENTE + ROTAS_DE_PROCESSO 

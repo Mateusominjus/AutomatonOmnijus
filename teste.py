@@ -4,6 +4,5 @@ from automatonOmnijus import ConectCentral
 
 
 central = ConectCentral(senha='omnijus01dev')
-empresa = central.empresa('boa_vista')
-r = empresa.todos_processos()
+r = central.limpa_log_central()
 print(r)

@@ -13,10 +13,10 @@ class ConectProcesso:
         'processo':str(processo)
        }
     
-
     
     def dados_do_processo(self)->dict:
         return faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
+    
     
     def logs_do_processo(self)->list:
         return faz_requisicao(headers=self._headers,rota=LOGS_DO_PROCESSO)
