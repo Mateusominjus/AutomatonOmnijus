@@ -30,6 +30,7 @@ class ConexaoProcesso:
             self._carregado = True
 
 
+
     def criar_processo(self):
         """Cria um novo processo novo
         Args:
@@ -54,13 +55,6 @@ class ConexaoProcesso:
         faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
         self._carregado = False
     
-
-    def verifica_se_esta_carregado(self):
-        """Verifica se o processo está carregado"""
-        if not self._carregado:
-            raise Exception('O processo não foi carregado')
-
-
     def carregar_processo(self):
         """Carrega o processo
         Returns:
@@ -83,6 +77,25 @@ class ConexaoProcesso:
         self._carregado = True
         return self 
 
+
+    def verifica_se_esta_carregado(self):
+        """Verifica se o processo está carregado"""
+        if not self._carregado:
+            raise Exception('O processo não foi carregado')
+
+    def salvar_processo_localmente(self):
+        """Salva os dados do processo"""
+        if self._offline:return 
+        self.verifica_se_esta_carregado()    
+        dados = {
+            'processo':self.dados_do_processo,
+            'estado':self.estado,
+            'acoes':self.acoes
+        }
+        
+        faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
+
+
     def documento(self,nome:str=None,hash:str=None) -> Documento:
         """Retorna um documento do processo
         Args:
@@ -104,20 +117,18 @@ class ConexaoProcesso:
             else:
                 raise Exception('Nome ou hash não fornecidos')
         
-        raise Exception('Documento não encontrado')
+        self.documentos.append(
+            Documento(senha=self._senha,
+                      ambiente=self._ambiente,
+                      nome=nome,
+                      hash=hash,
+                      processo=self.num_processo,
+                      offline=self._offline
+            )
+        )
 
 
-    def salvar_processo_localmente(self):
-        """Salva os dados do processo"""
-        if self._offline:return 
-        self.verifica_se_esta_carregado()    
-        dados = {
-            'processo':self.dados_do_processo,
-            'estado':self.estado,
-            'acoes':self.acoes
-        }
-        
-        faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
+
 
     def __repr__(self) -> str:
 

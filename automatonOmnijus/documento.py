@@ -7,7 +7,7 @@ from requests import get
 
 class Documento:
 
-     def __init__(self,senha:str,ambiente:str,nome:str,hash:str,processo:str,offline:bool=False) -> None:
+     def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None,offline:bool=False) -> None:
         self.num_processo = processo
         self.nome = nome
         self.hash = hash
