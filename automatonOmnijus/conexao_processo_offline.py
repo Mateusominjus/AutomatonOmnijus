@@ -9,7 +9,7 @@ class ConexaoProcessoOffline:
         self.dados_do_processo = {}
         self.estado = {}
         self.acoes = []
-        
+
         
     def criar_processo(self):
         """Cria um novo processo novo
@@ -73,6 +73,7 @@ class ConexaoProcessoOffline:
         """
         with open(path,'w') as f:
             dump(self.__dict__,f,indent=4)
+
 
     def novo_documento(self,nome:str=None):
         """Cria um novo documento

@@ -111,5 +111,5 @@ class Documento:
      def __repr__(self):
         return f"""Documento: {self.nome}
 Hash: {self.hash}
-Query string: {self.gerar_url()}"""
+Url: {self.gerar_url()}"""
 
