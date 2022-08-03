@@ -29,14 +29,10 @@ class ConexaoProcesso:
             self._carregado = True
 
 
-    def criar_processo(self):
+    def criar_processo(self)->str:
         """Cria um novo processo novo
-        Args:
-            dados_do_processo (dict): Dicionário com os dados do processo
-            estado (dict): Estado do processo
-            acoes (List[dict]): Lista de ações do processo
         Returns:         
-            str: o texto retornado pela central
+           ConexaoProcesso: Novo processo
         """
         dados = {
             'processo':self.dados_do_processo,
@@ -45,23 +41,24 @@ class ConexaoProcesso:
         }
         faz_requisicao(headers=self._headers,rota=CRIAR_PROCESSO,body=dados)
         self._carregado = True 
-
+        return self 
     
 
-    def excluir_processo(self):
+
+    def excluir_processo(self)->str:
         """Exclui o processo
         Returns:         
-            str: o texto retornado pela central
+            ConexaoProcesso: O processo existente
         """ 
         faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
         self._carregado = False
-    
+        return self 
 
 
     def carregar_processo(self):
         """Carrega o processo
         Returns:
-            dict: Dicionário com o processo
+            ConexaoProcesso: O processo carregado
         """
         carregamento = faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
         self.dados_do_processo = carregamento['processo']
@@ -81,7 +78,8 @@ class ConexaoProcesso:
         return self 
 
 
-    def verifica_se_esta_carregado(self):
+
+    def verifica_se_esta_carregado(self)->bool:
         """Verifica se o processo está carregado"""
         if not self._carregado:
             raise Exception('O processo não foi carregado')
@@ -90,7 +88,7 @@ class ConexaoProcesso:
     def salvar_processo(self):
         """Salva os dados do processo
         Returns:         
-            str: o texto retornado pela central
+            ConexaoProcesso: O próprio processo
         """
         self.verifica_se_esta_carregado()    
         dados = {
@@ -99,7 +97,9 @@ class ConexaoProcesso:
             'acoes':self.acoes
         }
         
-        return faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
+        faz_requisicao(headers=self._headers,rota=MODIFICAR_PROCESSO,body=dados)
+        return self 
+
 
 
     def novo_documento(self,nome:str=None) -> Documento:
@@ -115,7 +115,6 @@ class ConexaoProcesso:
             ambiente=self._ambiente,
             nome=nome,
             processo=self.num_processo,
-            offline=self._offline
         )
         if self._carregado:
             self.documentos.append(doc)        

@@ -28,8 +28,6 @@ class ConexaoAmbiente:
         """
         return ConexaoProcesso(senha=self._senha,ambiente=self._ambiente,processo=processo,carregar=carregar)
     
-
-
     
 
     def excluir_todos_processos(self):
@@ -59,6 +57,7 @@ class ConexaoAmbiente:
         novo_header = deepcopy(self._headers)
         novo_header['acao'] = nome_da_acao
         return faz_requisicao(headers=novo_header,rota=ADICIONAR_ACAO_A_LISTA_DE_ERROS, body=log)
+    
     
     def lista_de_acoes_em_erro(self)->List[str]:
         """Retorna uma lista com as ações em erro
@@ -95,6 +94,7 @@ class ConexaoAmbiente:
             List[int]: Lista com os números de todos os processos
         """
         return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
+
 
     def processos(self)->List[ConexaoProcesso]:
         """Retorna uma lista com todos os processos da ambiente
