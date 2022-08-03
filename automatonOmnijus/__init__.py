@@ -1,3 +1,4 @@
 from automatonOmnijus.conexao_central import ConexaoCentral
 from automatonOmnijus.conexao_ambiente import ConexaoAmbiente
 from automatonOmnijus.conexao_processo import  ConexaoProcesso
+from automatonOmnijus.conexao_processo_offline import ConexaoProcessoOffline 

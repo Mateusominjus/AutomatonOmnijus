@@ -1,5 +1,5 @@
 from copy import deepcopy
-from json import dumps,load
+from json import dumps,load,dump
 
 
 class ConexaoProcessoOffline:
@@ -34,7 +34,7 @@ class ConexaoProcessoOffline:
             ConexaoProcesso: O processo carregado
         """
         return self 
-        
+
     def carregar_processo_via_json(self,path:str):
         """Carrega o processo
         Returns:
@@ -42,9 +42,13 @@ class ConexaoProcessoOffline:
         """
         with open(path,'r') as f:
             dados = load(f)
-        self.dados_do_processo = dados['processo']
-        self.estado = dados['estado']
-        self.acoes = dados['acoes']
+        if 'processo' in dados:
+            self.dados_do_processo = dados['processo']
+        if 'estado' in dados:
+            self.estado = dados['estado']
+        if 'acoes' in dados:
+            self.acoes = dados['acoes']
+
         return self 
 
 
@@ -58,11 +62,17 @@ class ConexaoProcessoOffline:
     def salvar_processo(self):
         """Salva os dados do processo
         Returns:         
-            str: o texto retornado pela central
+            ConexaoProcesso: O próprio processo
         """
-  
+        return self 
 
-
+    def salva_processo_em_json(self,path:str):
+        """Salva o processo em um arquivo json
+        Args:
+            path (str): Caminho do arquivo
+        """
+        with open(path,'w') as f:
+            dump(self.__dict__,f,indent=4)
 
     def novo_documento(self,nome:str=None):
         """Cria um novo documento
@@ -90,14 +100,8 @@ class ConexaoProcessoOffline:
         #ident the is of documents in tab 4
 
         text = '\n' + '=' *100 + f"""\nProcesso: {self.num_processo}
-Carregado: {self._carregado}
 Estado: {self.estado}
 Dados do processo: {dumps(self.dados_do_processo,indent=4)}
 Acoes: {dumps(self.acoes,indent=4)}
 """
-        text+='Documentos:'
-        for doc in self.documentos:
-            text+='\n\t' + '-'* 100
-            text += '\n\t' + str(doc).replace('\n','\n\t') 
-
         return text

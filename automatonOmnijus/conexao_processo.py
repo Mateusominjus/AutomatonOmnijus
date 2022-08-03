@@ -29,7 +29,7 @@ class ConexaoProcesso:
             self._carregado = True
 
 
-    def criar_processo(self)->str:
+    def criar_processo(self):
         """Cria um novo processo novo
         Returns:         
            ConexaoProcesso: Novo processo
@@ -45,7 +45,7 @@ class ConexaoProcesso:
     
 
 
-    def excluir_processo(self)->str:
+    def excluir_processo(self):
         """Exclui o processo
         Returns:         
             ConexaoProcesso: O processo existente
