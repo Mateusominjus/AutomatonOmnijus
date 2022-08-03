@@ -11,6 +11,6 @@ setup(
     keywords=['omnius','lawTec'],
     install_requires=['requests'],
 )
-    """_summary_
-    """
-    #para instalar  pip install git+https://github.com/Mateusominjus/AutomatonOmnijus.git
+"""_summary_
+"""
+#para instalar  pip install git+https://github.com/Mateusominjus/AutomatonOmnijus.git
