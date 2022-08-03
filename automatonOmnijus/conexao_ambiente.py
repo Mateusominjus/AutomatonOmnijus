@@ -60,6 +60,14 @@ class ConexaoAmbiente:
         novo_header['acao'] = nome_da_acao
         return faz_requisicao(headers=novo_header,rota=ADICIONAR_ACAO_A_LISTA_DE_ERROS, body=log)
     
+    def lista_de_acoes_em_erro(self)->List[str]:
+        """Retorna uma lista com as ações em erro
+        Returns:
+            List[str]: Lista com as ações em erro
+        """
+        acoes_em_erro = self.acoes_em_erro()
+        return acoes_em_erro.keys()
+    
     
     def remover_acao_de_erro(self,nome_da_acao:str):
         """Remove uma ação de erro
