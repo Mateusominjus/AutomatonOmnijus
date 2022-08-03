@@ -5,17 +5,17 @@ from automatonOmnijus.requisicao import faz_requisicao
 from automatonOmnijus.rotas import VISUALIZAR_DOCUMENTO
 from requests import get,post
 from json import loads
+
+
 class Documento:
 
-     def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None,offline:bool=False) -> None:
+     def __init__(self,senha:str,ambiente:str,processo:str,nome:str=None,hash:str=None) -> None:
     
         self.num_processo = processo
         self.nome = nome
         self.hash = hash 
         self._senha = senha
         self._ambiente  = ambiente
-        self._offline = offline 
-        
 
      def cria_headers(self) -> None:
         return {
@@ -38,8 +38,7 @@ class Documento:
          """ Baixa binário do documento
          Returns:
              bytes: o binário do documento 
-         """
-         if self._offline:return 
+         """ 
          self.verifica_se_possui_headers_de_acesso()
          req ={
             'url':f'{URL}{VISUALIZAR_DOCUMENTO}',
@@ -54,8 +53,6 @@ class Documento:
          Args:
              path (str, optional): Onde salvar o documento. Defaults to None.
          """
-         if self._offline:return 
-
          if path is None:
             path = self.nome
          binario = self.baixar_binario_do_documento()
@@ -68,10 +65,7 @@ class Documento:
          """Faz o upload do documento
          Args:
              elemento (str or bytes): O elemento a ser enviado podendo ser um path ou um binário
-         """
-         if self._offline:return 
-        
-            
+         """    
          if isinstance(elemento,str):
             if not self.nome:
                 self.nome = elemento.split('/')[-1]
@@ -94,7 +88,6 @@ class Documento:
          
      def excluir(self):
          """Exclui o documento"""
-         if self._offline:return 
          self.verifica_se_possui_headers_de_acesso()
          faz_requisicao(headers=self.cria_headers(),rota=EXCLUIR_DOCUMENTO_DO_PROCESSO)
     
@@ -118,6 +111,5 @@ class Documento:
      def __repr__(self):
         return f"""Documento: {self.nome}
 Hash: {self.hash}
-Offline: {self._offline}
 Query string: {self.gerar_url()}"""
 

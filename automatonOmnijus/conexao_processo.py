@@ -9,7 +9,7 @@ from automatonOmnijus.rotas import *
 
 class ConexaoProcesso:
 
-    def __init__(self,senha:str,ambiente:str,processo:str,offline:bool=False,carregar:bool=False) -> None:
+    def __init__(self,senha:str,ambiente:str,processo:str,carregar:bool=False) -> None:
         self.num_processo = processo
         self.dados_do_processo = {}
         self.estado = {}
@@ -18,7 +18,6 @@ class ConexaoProcesso:
         self._senha = senha
         self._ambiente = ambiente
         self._carregado = False 
-        self._offline = offline 
         self._headers = {
         'senha':senha,
         'ambiente':ambiente,
@@ -30,7 +29,6 @@ class ConexaoProcesso:
             self._carregado = True
 
 
-
     def criar_processo(self):
         """Cria um novo processo novo
         Args:
@@ -40,7 +38,6 @@ class ConexaoProcesso:
         Returns:         
             str: o texto retornado pela central
         """
-        if self._offline:return 
         dados = {
             'processo':self.dados_do_processo,
             'estado':self.estado,
@@ -56,7 +53,6 @@ class ConexaoProcesso:
         Returns:         
             str: o texto retornado pela central
         """ 
-        if self._offline:return 
         faz_requisicao(headers=self._headers,rota=EXCLUIR_PROCESSO)
         self._carregado = False
     
@@ -67,7 +63,6 @@ class ConexaoProcesso:
         Returns:
             dict: Dicionário com o processo
         """
-        if self._offline:return 
         carregamento = faz_requisicao(headers=self._headers,rota=DADOS_DO_PROCESSO)
         self.dados_do_processo = carregamento['processo']
         self.estado = carregamento['estado']
@@ -97,7 +92,6 @@ class ConexaoProcesso:
         Returns:         
             str: o texto retornado pela central
         """
-        if self._offline:return 
         self.verifica_se_esta_carregado()    
         dados = {
             'processo':self.dados_do_processo,
@@ -124,11 +118,7 @@ class ConexaoProcesso:
             offline=self._offline
         )
         if self._carregado:
-            self.documentos.append(doc)
-        try:
-            doc.fazer_upload_de_documento(nome)
-        except FileNotFoundError:pass 
-        
+            self.documentos.append(doc)        
         return doc
 
 
@@ -151,7 +141,6 @@ class ConexaoProcesso:
 
         text = '\n' + '=' *100 + f"""\nProcesso: {self.num_processo}
 Carregado: {self._carregado}
-Offline: {self._offline}
 Estado: {self.estado}
 Dados do processo: {dumps(self.dados_do_processo,indent=4)}
 Acoes: {dumps(self.acoes,indent=4)}
