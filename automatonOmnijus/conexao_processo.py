@@ -21,7 +21,8 @@ class ConexaoProcesso:
         self._headers = {
         'senha':senha,
         'ambiente':ambiente,
-        'processo':str(processo)
+        'processo':str(processo),
+        'tempo_unix':'true'
        }
     
         if carregar:
@@ -55,7 +56,7 @@ class ConexaoProcesso:
         return self 
 
 
-    def carregar_processo(self):
+    def carregar_processo(self) -> None:
         """Carrega o processo
         Returns:
             ConexaoProcesso: O processo carregado
