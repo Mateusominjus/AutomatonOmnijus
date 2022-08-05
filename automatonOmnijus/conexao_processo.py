@@ -72,8 +72,7 @@ class ConexaoProcesso:
                 ambiente=self._ambiente,
                 nome=doc['nome'],
                 hash=doc['hash'],
-                processo=self.num_processo,
-                offline=self._offline
+                processo=self.num_processo
             ))
         self._carregado = True
         return self 
