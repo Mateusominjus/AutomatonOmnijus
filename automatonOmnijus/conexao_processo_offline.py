@@ -1,6 +1,8 @@
 from copy import deepcopy
 from json import dumps,load,dump
 
+from automatonOmnijus.documento_offline import DocumentoOffline
+
 
 class ConexaoProcessoOffline:
 
@@ -82,6 +84,7 @@ class ConexaoProcessoOffline:
         Returns:
             Documento: Documento do processo
         """
+        return DocumentoOffline(nome)
 
 
 

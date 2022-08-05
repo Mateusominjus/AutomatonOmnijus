@@ -12,4 +12,4 @@ setup(
     install_requires=['requests'],
 )
 
-#para instalar  pip install git+https://github.com/Mateusominjus/AutomatonOmnijus.git
+#para instalar  pip install --upgrade git+https://github.com/Mateusominjus/AutomatonOmnijus.git
