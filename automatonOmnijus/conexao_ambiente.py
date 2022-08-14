@@ -96,6 +96,38 @@ class ConexaoAmbiente:
         return faz_requisicao(headers=self._headers,rota=TODOS_PROCESSOS)
 
 
+    def numero_de_todos_processos_inativos(self)->List[int]:
+        """Retorna uma lista com o número todos os processos inativos da ambiente
+        Returns:
+            List[int]: Lista com os números de todos os processos inativos
+        """
+        return faz_requisicao(headers=self._headers,rota=PROCESSOS_INATIVOS)
+
+
+    def numero_de_todos_processos_ativos(self)->List[int]:
+        """Retorna uma lista com o número todos os processos ativos da ambiente
+        Returns:
+            List[int]: Lista com os números de todos os processos ativos
+        """
+        return faz_requisicao(headers=self._headers,rota=PROCESSOS_ATIVOS)
+
+
+    def ativar_todos_processos(self):
+        """Ativa todos os processos da ambiente
+        Returns:         
+            str: o texto retornado pela central
+        """
+        return faz_requisicao(headers=self._headers,rota=ATIVAR_TODOS_PROCESSOS)
+
+
+    def inativar_todos_processos(self):
+        """Inativa todos os processos da ambiente
+        Returns:         
+            str: o texto retornado pela central
+        """
+        return faz_requisicao(headers=self._headers,rota=INATIVAR_TODOS_PROCESSOS)
+
+
     def processos(self)->List[ConexaoProcesso]:
         """Retorna uma lista com todos os processos da ambiente
         Returns:
@@ -104,6 +136,5 @@ class ConexaoAmbiente:
         return [self.processo(processo) for processo in self.numero_de_todos_processos()]
 
 
-
-    
+        
 

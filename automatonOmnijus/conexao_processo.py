@@ -55,6 +55,21 @@ class ConexaoProcesso:
         self._carregado = False
         return self 
 
+    def inativar_processo(self):
+        """Inativa o processo
+        Returns:
+            ConexaoProcesso: O próprio processo
+        """
+        faz_requisicao(headers=self._headers,rota=INATIVAR_PROCESSO)
+        return self
+    
+    def ativar_processo(self):
+        """Ativa o processo
+        Returns:
+            ConexaoProcesso: O próprio processo
+        """
+        faz_requisicao(headers=self._headers,rota=ATIVAR_PROCESSO)
+        return self
 
     def carregar_processo(self) -> None:
         """Carrega o processo
@@ -77,7 +92,7 @@ class ConexaoProcesso:
         self._carregado = True
         return self 
 
-
+    
 
     def verifica_se_esta_carregado(self)->bool:
         """Verifica se o processo está carregado"""
